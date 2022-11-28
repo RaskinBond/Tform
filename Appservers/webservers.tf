@@ -9,7 +9,7 @@ resource "aws_instance" "webservers" {
     vpc_security_group_ids      = [aws_security_group.Web_server.id]
     
     tags = {
-    Name                        = format("%s-%d",var.webserver_info.name, count.index)
+    Name                        = format("%s-%d",var.webserver_info.name, count.index+1)
     }
     depends_on = [
       aws_instance.appservers
