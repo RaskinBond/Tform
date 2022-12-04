@@ -6,7 +6,6 @@ data "azurerm_subnet" "appsubnet" {
     depends_on = [
       azurerm_subnet.mumbai
     ]
-
 }
 
 
