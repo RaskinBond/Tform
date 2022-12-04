@@ -20,6 +20,10 @@ resource "azurerm_network_interface" "appnic" {
       subnet_id                     = data.azurerm_subnet.appsubnet.id
       private_ip_address_allocation = local.private_ip_address_allocation
     }
+
+    depends_on = [
+      data.azurerm_subnet.appsubnet
+    ]
 }
 
 
@@ -50,5 +54,4 @@ resource "azurerm_linux_virtual_machine" "appserver" {
         caching                     = local.caching
         storage_account_type        = local.storage_account_type
   }
-
 }

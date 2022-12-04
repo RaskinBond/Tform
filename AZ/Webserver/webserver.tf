@@ -7,7 +7,6 @@ data "azurerm_subnet" "websubnet" {
     depends_on = [
       azurerm_subnet.mumbai
     ]
-
 }
 
 # Public IP
@@ -17,6 +16,9 @@ resource "azurerm_public_ip" "webip" {
     name                            = "webpublicip" 
     allocation_method               = local.allocation_method
 
+    depends_on = [
+      data.azurerm_subnet.websubnet
+    ]
 }
 
 resource "azurerm_network_interface" "webnic" {
@@ -31,6 +33,9 @@ resource "azurerm_network_interface" "webnic" {
       private_ip_address_allocation = local.private_ip_address_allocation
     }
 
+    depends_on = [
+      data.azurerm_subnet.websubnet
+    ]
 }
 
 resource "azurerm_network_interface_security_group_association" "webnsg_association" {
@@ -59,6 +64,9 @@ resource "azurerm_linux_virtual_machine" "webserver" {
     os_disk {
         caching                     = local.caching
         storage_account_type        = local.storage_account_type
-  }
-
+    }
+    
+    depends_on = [
+        azurerm_linux_virtual_machine.appserver
+  ]
 }

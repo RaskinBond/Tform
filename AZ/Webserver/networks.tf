@@ -45,7 +45,7 @@ resource "azurerm_network_security_group" "app_nsg" {
   }
 
   depends_on = [
-    azurerm_virtual_network.vnet
+    azurerm_resource_group.terra
   ]
 }
 
@@ -78,6 +78,6 @@ resource "azurerm_network_security_group" "web_nsg" {
     destination_address_prefix  = local.destination_address_prefix
   }
   depends_on = [
-    azurerm_virtual_network.vnet
+    azurerm_resource_group.terra
   ]
 }
