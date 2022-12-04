@@ -1,5 +1,4 @@
 locals {
-
     direction                       = "Inbound"
     access                          = "Allow"
     protocol                        = "Tcp"

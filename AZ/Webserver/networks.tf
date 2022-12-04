@@ -33,7 +33,7 @@ resource "azurerm_network_security_group" "app_nsg" {
     resource_group_name         = azurerm_resource_group.terra.name
 
   security_rule {
-    name                        = "https"
+    name                        = "privatenetwork"
     priority                    = 300
     direction                   = local.direction
     access                      = local.access

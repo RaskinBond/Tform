@@ -1,5 +1,5 @@
 variable "location" {
-    type = string
+    type    = string
     default = "Central India"
 }
 
@@ -19,37 +19,27 @@ variable "private_endpoint_subnet" {
 }
 
 variable "appsubnet" {
-    type = string
+    type    = string
     default = "app"
 }
 
 variable "websubnet" {
-    type = string
+    type    = string
     default = "web"
 }
 
 variable "vmsize" {
-    type = string
+    type    = string
     default = "Standard_B1s"
 }
 
-# variable "servername" {
-#     type = string
-#     default = "qt1dbservertf1"
-# }
-
-# variable "dbname" {
-#     type = string
-#     default = "qtdbfromtf1"
-# }
-
 variable "username" {
-    type = string
+    type    = string
     default = "tfdevops"
 }
 
 variable "password" {
-    type = string
+    type    = string
     default = "tfdevops#987123"
 }
 
