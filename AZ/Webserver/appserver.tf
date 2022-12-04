@@ -14,6 +14,7 @@ resource "azurerm_network_interface" "appnic" {
     name                            = "appnic"
     resource_group_name             = azurerm_resource_group.terra.name
     location                        = azurerm_resource_group.terra.location
+    
     ip_configuration {
       name                          = "appipconfig"
       subnet_id                     = data.azurerm_subnet.appsubnet.id
