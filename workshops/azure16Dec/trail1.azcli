@@ -1,0 +1,17 @@
+az resource list --resource-group workshop --query "[].id" --output tsv
+
+az group list --query "[].id" --output tsv
+
+az resource list --resource-type "Microsoft.Compute/VirtualMachines" --query "[?tag.Environment==Dev].id" --output tsv
+
+az resource list --query "[].name" --output tsv
+
+az tag list --query "[].tagName" --output tsv
+
+az group list --query "[].id" --tag "Environment=Dev" --output tsv
+
+az group list --query "[?tags.Environment!=Dev].id" --output tsv
+
+az group list --query "[].name" --tag "Environment=Dev" --output tsv
+
+az group list --query "[?tags.Environment!=Dev].name" --output tsv
